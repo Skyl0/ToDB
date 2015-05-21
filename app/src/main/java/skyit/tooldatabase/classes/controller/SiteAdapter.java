@@ -1,19 +1,23 @@
 package skyit.tooldatabase.classes.controller;
 
-import skyit.tooldatabase.R;
-import skyit.tooldatabase.classes.model.Tool;
-import java.util.ArrayList;
-import android.content.*;
-import android.view.*;
-import android.widget.*;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
-public class ToolAdapter extends BaseAdapter {
+import java.util.ArrayList;
 
-    private ArrayList<Tool> _data;
+import skyit.tooldatabase.R;
+import skyit.tooldatabase.classes.model.Site;
+
+public class SiteAdapter extends BaseAdapter {
+
+    private ArrayList<Site> _data;
     Context _c;
 
-    public ToolAdapter (ArrayList<Tool> data, Context c){
+    public SiteAdapter(ArrayList<Site> data, Context c){
         _data = data;
         _c = c;
     }
@@ -39,18 +43,18 @@ public class ToolAdapter extends BaseAdapter {
         if (v == null)
         {
             LayoutInflater vi = (LayoutInflater)_c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = vi.inflate(R.layout.list_tool_single, null);
+            v = vi.inflate(R.layout.list_site_single, null);
         }
 
         TextView nameView = (TextView)v.findViewById(R.id.name);
         TextView descView = (TextView)v.findViewById(R.id.description);
-        TextView costView = (TextView)v.findViewById(R.id.cost);
+        //TextView costView = (TextView)v.findViewById(R.id.cost);
 
-        Tool tool = _data.get(position);
-        float cost = tool.getCost();
-        nameView.setText(tool.getName());
-        descView.setText(tool.getDescription());
-        costView.setText(Float.toString(cost) + "0 Euro");
+        Site site = _data.get(position);
+        //float cost = site.getCost();
+        nameView.setText(site.getName());
+        descView.setText(site.getDescription());
+       // costView.setText(Float.toString(cost));
 
         return v;
     }

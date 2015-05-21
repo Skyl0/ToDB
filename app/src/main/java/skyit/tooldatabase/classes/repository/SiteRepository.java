@@ -34,11 +34,24 @@ public class SiteRepository {
         controller.update();
     }
 
+    public void addSite (Site site) {
+        sites.add(site);
+    }
+
 
     public ArrayList<Site> getList () {
         return sites;
     }
 
+    public Site getByUid (int UID) {
+        Site temp;
+        for (int i = 0; i < sites.size(); i++) {
+            if (sites.get(i).getUID() == UID) {
+                return sites.get(i);
+            }
+        }
+        return null;
+    }
     public void removeByUid (int UID) {
         Site temp;
         for (int i = 0; i < sites.size(); i++) {

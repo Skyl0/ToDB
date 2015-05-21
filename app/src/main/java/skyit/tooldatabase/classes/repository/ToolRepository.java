@@ -1,7 +1,9 @@
 package skyit.tooldatabase.classes.repository;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import skyit.tooldatabase.classes.controller.ListViewController;
+import skyit.tooldatabase.classes.model.Site;
 import skyit.tooldatabase.classes.model.Tool;
 
 /**
@@ -32,6 +34,10 @@ public class ToolRepository {
         nextUID++;
     }
 
+   public void addTool(Tool t) {
+       tools.add(t);
+   }
+
     public ArrayList<Tool> getList () {
         return tools;
     }
@@ -52,6 +58,16 @@ public class ToolRepository {
                 break;
             }
         }
+    }
+
+    public ArrayList<Tool> getToolsBySite (Site site) {
+        ArrayList<Tool> output = new ArrayList<Tool>();
+        for (int i = 0; i < tools.size(); i++) {
+            if (tools.get(i).getCurrent().equals(site)) {
+                output.add(tools.get(i));
+            }
+        }
+        return output;
     }
 
 }

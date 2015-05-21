@@ -47,7 +47,7 @@ public class Tool {
     private float cost;
     private int UID;
 
-    public Tool (String description, String name, float cost, int UID) {
+    public Tool (String name, String description, float cost, int UID) {
         this.description = description;
         this.name = name;
         this.UID = UID;

@@ -14,6 +14,7 @@ public class SiteRepository {
     private ListViewController controller;
     private ArrayList<Site> sites = new ArrayList<Site>();
 
+    public SiteRepository() {};
     public SiteRepository(ListViewController controller) {
         setController(controller);
     }

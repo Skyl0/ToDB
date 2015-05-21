@@ -13,6 +13,7 @@ public class ToolRepository {
     private int nextUID = 0;
     private ListViewController controller;
 
+    public ToolRepository() {}
     public ToolRepository(ListViewController controller) {
         setController(controller);
     }
@@ -33,6 +34,13 @@ public class ToolRepository {
 
     public ArrayList<Tool> getList () {
         return tools;
+    }
+    public String[] getStringArray() {
+        String[] output = new String[tools.size()];
+        for (int i = 0; i < tools.size(); i++) {
+            output[i] = tools.get(i).getName();
+        }
+        return output;
     }
 
     public void removeByUid (int UID) {
